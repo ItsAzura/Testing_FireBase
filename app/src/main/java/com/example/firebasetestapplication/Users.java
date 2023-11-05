@@ -4,9 +4,7 @@ public class Users {
 
     String firstName, lastName, age, userName, PassWord;
 
-    public Users(){
-
-    }
+    public Users(){}
 
     public Users(String firstName, String lastName, String age, String userName, String passWord) {
         this.firstName = firstName;

@@ -2,7 +2,6 @@ package com.example.firebasetestapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,26 +22,20 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLogInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.btnEnterLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                userName = binding.etUserName.getText().toString();
-                password = binding.etPass.getText().toString();
+        binding.btnEnterLogin.setOnClickListener(view -> {
+            userName = binding.etUserName.getText().toString();
+            password = binding.etPass.getText().toString();
 
-                if (!userName.isEmpty() && !password.isEmpty()) {
-                    checkUserLogin(userName, password);
-                } else {
-                    Toast.makeText(LogInActivity.this, "Please enter both username and password", Toast.LENGTH_SHORT).show();
-                }
+            if (!userName.isEmpty() && !password.isEmpty()) {
+                checkUserLogin(userName, password);
+            } else {
+                Toast.makeText(LogInActivity.this, "Please enter both username and password", Toast.LENGTH_SHORT).show();
             }
         });
 
-        binding.btnEnterSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LogInActivity.this,MainActivity.class);
-                startActivity(intent);
-            }
+        binding.btnEnterSignUp.setOnClickListener(view -> {
+            Intent intent = new Intent(LogInActivity.this,MainActivity.class);
+            startActivity(intent);
         });
     }
 
